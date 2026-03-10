@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 97%;
+    --foreground: 150 10% 15%;
+
+    --card: 40 15% 95%;
+    --card-foreground: 150 10% 15%;
+
+    --popover: 40 20% 97%;
+    --popover-foreground: 150 10% 15%;
+
+    --primary: 140 12% 52%;
+    --primary-foreground: 40 20% 97%;
+
+    --secondary: 25 30% 72%;
+    --secondary-foreground: 150 10% 15%;
+
+    --muted: 40 15% 92%;
+    --muted-foreground: 150 8% 45%;
+
+    --accent: 140 15% 88%;
+    --accent-foreground: 150 10% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 140 12% 52%;
+
+    --radius: 0.5rem;
+
+    --sage: 140 12% 52%;
+    --sage-light: 140 15% 88%;
+    --sage-dark: 140 14% 35%;
+    --clay: 25 30% 72%;
+    --clay-light: 25 25% 88%;
+    --clay-dark: 25 25% 55%;
+    --cream: 40 20% 97%;
+    --cream-dark: 40 15% 90%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+
+    --glass-bg: hsla(40, 20%, 97%, 0.65);
+    --glass-border: hsla(40, 15%, 88%, 0.4);
+    --glass-shadow: 0 8px 32px hsla(140, 12%, 52%, 0.1);
+
+    --sidebar-background: 40 20% 97%;
+    --sidebar-foreground: 150 10% 15%;
+    --sidebar-primary: 140 12% 52%;
+    --sidebar-primary-foreground: 40 20% 97%;
+    --sidebar-accent: 140 15% 88%;
+    --sidebar-accent-foreground: 150 10% 15%;
+    --sidebar-border: 40 15% 88%;
+    --sidebar-ring: 140 12% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    cursor: none;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .text-gradient-sage {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--sage-dark)), hsl(var(--sage)));
+  }
+
+  .text-gradient-clay {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--clay-dark)), hsl(var(--clay)));
+  }
+
+  .section-padding {
+    @apply px-6 py-20 md:px-12 lg:px-24 lg:py-32;
+  }
+
+  .magnetic-hover {
+    @apply transition-transform duration-300 ease-out;
+  }
+
+  .magnetic-hover:hover {
+    transform: scale(1.03);
+  }
+
+  .btn-primary-skincare {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-body text-sm font-semibold tracking-widest uppercase transition-all duration-500;
+    background: hsl(var(--sage));
+    color: hsl(var(--cream));
+  }
+  .btn-primary-skincare:hover {
+    background: hsl(var(--sage-dark));
+    box-shadow: 0 10px 40px hsla(140, 12%, 52%, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline-skincare {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-body text-sm font-semibold tracking-widest uppercase transition-all duration-500;
+    border: 1.5px solid hsl(var(--sage));
+    color: hsl(var(--sage-dark));
+    background: transparent;
+  }
+  .btn-outline-skincare:hover {
+    background: hsl(var(--sage));
+    color: hsl(var(--cream));
+  }
+
+  .divider-botanical {
+    @apply w-16 h-px mx-auto my-8;
+    background: hsl(var(--sage));
+    opacity: 0.4;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+}
